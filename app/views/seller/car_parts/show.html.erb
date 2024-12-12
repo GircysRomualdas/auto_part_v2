@@ -1,0 +1,11 @@
+<div>
+  <p><%= @car_part.id %></p>
+  <p><%= @car_part.name %></p>
+  <p><%= @car_part.price %></p>
+  <p><%= @car_part.quantity %></p>
+  <p><%= @car_part.created_at %></p>
+  <p><%= @car_part.updated_at %></p>
+</div>
+<%= link_to "Edit", edit_seller_car_part_path(@car_part) %>
+<%= button_to "Delete", seller_car_part_path(@car_part), class: "btn btn-danger", method: :delete, data: {turbo_confirm: "Are you sure?"} %>
+<%= link_to "back", seller_car_parts_path %>

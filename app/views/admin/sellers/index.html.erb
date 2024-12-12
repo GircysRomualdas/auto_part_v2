@@ -1,0 +1,23 @@
+<h1>Sellers</h1>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Email</th>
+      <th>Created</th>
+      <th>Updated</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sellers.each do |seller| %>
+      <tr>
+        <td><%= seller.id %></td>
+        <td><%= seller.email %></td>
+        <td><%= seller.created_at %></td>
+        <td><%= seller.updated_at %></td>
+        <td><%= link_to "show", admin_seller_path(seller) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

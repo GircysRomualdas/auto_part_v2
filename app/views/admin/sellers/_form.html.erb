@@ -1,0 +1,41 @@
+<%= form_with(model: [:seller, car_part]) do |form| %>
+  <% if car_part.errors.any? %>
+    <div>
+      <h2><%= pluralize(car_part.errors.count, "error") %></h2>
+      <ul>
+        <% car_part.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <div>
+      <%= form.label :name %><br>
+      <%= form.text_field :name %>
+    </div>
+    <div>
+      <%= form.label :description %><br>
+      <%= form.text_area :description %>
+    </div>
+    <div>
+      <%= form.label :price %><br>
+      <%= form.number_field :price, step: 0.01 %>
+    </div>
+    <div>
+      <%= form.label :quantity %><br>
+      <%= form.number_field :quantity %>
+    </div>
+    <div>
+      <%= form.label :car_model_id, "Car Model" %><br>
+      <%= form.collection_select :car_model_id, CarModel.all, :id, :name, prompt: "Select a Car Model" %>
+    </div>
+    <div>
+      <%= form.label :part_type_id, "Part Type" %><br>
+      <%= form.collection_select :part_type_id, PartType.all, :id, :name, prompt: "Select a Part Type" %>
+    </div>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

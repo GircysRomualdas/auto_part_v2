@@ -1,0 +1,9 @@
+<h1>Show seller</h1>
+<div>
+  <p><%= @seller.id %></p>
+  <p><%= @seller.email %></p>
+  <p><%= @seller.created_at %></p>
+  <p><%= @seller.updated_at %></p>
+</div>
+<%= button_to "Delete", admin_seller_path(@seller), class: "btn btn-danger", method: :delete, data: {turbo_confirm: "Are you sure?"} %>
+<%= link_to "back", admin_sellers_path %>
