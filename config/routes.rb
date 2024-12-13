@@ -11,8 +11,12 @@ Rails.application.routes.draw do
   end
 
   devise_for :customers
-  devise_for :sellers
-  devise_for :admins
+  devise_for :sellers, controllers: {
+    registrations: "devise_seller/registrations"
+  }
+  devise_for :admins, controllers: {
+    registrations: "devise_admin/registrations"
+  }
 
   authenticated :admin_user do
     root to: "admin#index", as: :admin_root
