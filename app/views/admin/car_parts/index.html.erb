@@ -20,7 +20,7 @@
         <td><%= car_part.quantity %></td>
         <td><%= car_part.created_at %></td>
         <td><%= car_part.updated_at %></td>
-        <td><%= link_to "show", admin_car_part_path(car_part) %></td>
+        <td><%= link_to "more", admin_car_part_path(car_part), class: "btn btn-primary" %></td>
       </tr>
     <% end %>
   </tbody>

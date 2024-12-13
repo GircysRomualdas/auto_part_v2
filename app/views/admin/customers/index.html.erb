@@ -16,7 +16,7 @@
         <td><%= customer.email %></td>
         <td><%= customer.created_at %></td>
         <td><%= customer.updated_at %></td>
-        <td><%= link_to "show", admin_customer_path(customer) %></td>
+        <td><%= link_to "more", admin_customer_path(customer), class: "btn btn-primary" %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,9 +1,11 @@
-<h1>Show customer</h1>
 <div>
-  <p><%= @customer.id %></p>
-  <p><%= @customer.email %></p>
-  <p><%= @customer.created_at %></p>
-  <p><%= @customer.updated_at %></p>
+  <%= link_to "back", admin_customers_path %>
+  <h1>Show customer</h1>
+  <div>
+    <p><strong>ID:</strong> <%= @customer.id %></p>
+    <p><strong>Email:</strong> <%= @customer.email %></p>
+    <p><strong>Created at:</strong> <%= @customer.created_at %></p>
+    <p><strong>Updated at:</strong> <%= @customer.updated_at %></p>
+  </div>
+  <%= button_to "Delete", admin_customer_path(@customer), class: "btn btn-danger", method: :delete, data: {turbo_confirm: "Are you sure?"} %>
 </div>
-<%= button_to "Delete", admin_customer_path(@customer), class: "btn btn-danger", method: :delete, data: {turbo_confirm: "Are you sure?"} %>
-<%= link_to "back", admin_customers_path %>

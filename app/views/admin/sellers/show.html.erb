@@ -1,9 +1,11 @@
-<h1>Show seller</h1>
 <div>
-  <p><%= @seller.id %></p>
-  <p><%= @seller.email %></p>
-  <p><%= @seller.created_at %></p>
-  <p><%= @seller.updated_at %></p>
+  <%= link_to "back", admin_sellers_path %>
+  <h1>Show seller</h1>
+  <div>
+    <p><strong>ID:</strong> <%= @seller.id %></p>
+    <p><strong>Email:</strong> <%= @seller.email %></p>
+    <p><strong>Created at:</strong> <%= @seller.created_at %></p>
+    <p><strong>Updated at:</strong> <%= @seller.updated_at %></p>
+  </div>
+  <%= button_to "Delete", admin_seller_path(@seller), class: "btn btn-danger", method: :delete, data: {turbo_confirm: "Are you sure?"} %>
 </div>
-<%= button_to "Delete", admin_seller_path(@seller), class: "btn btn-danger", method: :delete, data: {turbo_confirm: "Are you sure?"} %>
-<%= link_to "back", admin_sellers_path %>
