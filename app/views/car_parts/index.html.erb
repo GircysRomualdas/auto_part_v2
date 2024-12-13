@@ -1,0 +1,11 @@
+<h1>Car parts</h1>
+<% @car_parts.each do |car_part| %>
+  <div class="border rounded p-3 my-3">
+    <p><strong>Name:</strong> <%= car_part.name %></p>
+    <p><strong>Price:</strong> <%= car_part.price %> €</p>
+    <p><strong>Part Type:</strong> <%= car_part.part_type.name %></p>
+    <p><strong>Car Model:</strong> <%= car_part.car_model.name %></p>
+    <p><strong>Car Brand:</strong> <%= car_part.car_model.car_brand.name %></p>
+    <%= link_to "show", car_part_path(car_part) %>
+  </div>
+<% end %>

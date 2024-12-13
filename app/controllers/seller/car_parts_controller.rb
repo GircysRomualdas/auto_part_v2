@@ -17,7 +17,7 @@ class Seller::CarPartsController < SellerController
   end
 
   def create
-    @car_part = CarPart.new(car_part_params)
+    @car_part = current_seller.car_parts.new(car_part_params)
 
     if @car_part.save
       flash[:notice] = "Car part was seccessfully created"
@@ -62,6 +62,6 @@ class Seller::CarPartsController < SellerController
     end
 
     def car_part_params
-      params.require(:car_part).permit(:name, :description, :price, :quantity, :car_model, :seller, :part_type)
+      params.require(:car_part).permit(:name, :description, :price, :quantity, :car_model_id, :part_type_id)
     end
 end

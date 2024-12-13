@@ -15,7 +15,7 @@ class Admin::CustomersController < AdminController
       flash[:alert] = "Failed to delete customer"
     end
 
-    redirect_to admin_car_parts_path
+    redirect_to admin_customers_path
   end
 
   private

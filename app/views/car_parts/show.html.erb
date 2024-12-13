@@ -1,4 +1,4 @@
-<h1>Show car part</h1>
+<h1>Car part show</h1>
 <div>
   <p><strong>ID:</strong> <%= @car_part.id %></p>
   <p><strong>Name:</strong> <%= @car_part.name %></p>
@@ -8,9 +8,5 @@
   <p><strong>Car Model:</strong> <%= @car_part.car_model.name %></p>
   <p><strong>Car Brand:</strong> <%= @car_part.car_model.car_brand.name %></p>
   <p><strong>Description:</strong> <%= @car_part.description %></p>
-  <p><strong>Created at:</strong> <%= @car_part.created_at %></p>
-  <p><strong>Updated at:</strong> <%= @car_part.updated_at %></p>
+  <%= link_to "back", car_parts_path %>
 </div>
-<%= link_to "Edit", edit_seller_car_part_path(@car_part) %>
-<%= button_to "Delete", seller_car_part_path(@car_part), class: "btn btn-danger", method: :delete, data: {turbo_confirm: "Are you sure?"} %>
-<%= link_to "back", seller_car_parts_path %>

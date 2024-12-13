@@ -1,41 +1,32 @@
-<%= form_with(model: [:seller, car_part]) do |form| %>
-  <% if car_part.errors.any? %>
+<%= form_with(model: [:admin, seller]) do |form| %>
+  <% if seller.errors.any? %>
     <div>
-      <h2><%= pluralize(car_part.errors.count, "error") %></h2>
+      <h2><%= pluralize(seller.errors.count, "error") %></h2>
       <ul>
-        <% car_part.errors.each do |error| %>
+        <% seller.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
   <div>
-    <div>
-      <%= form.label :name %><br>
-      <%= form.text_field :name %>
+    <div class="field">
+      <%= form.label :email, class: "form-label" %><br />
+      <%= form.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
     </div>
-    <div>
-      <%= form.label :description %><br>
-      <%= form.text_area :description %>
+    <div class="field">
+      <%= form.label :password, class: "form-label" %>
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= form.password_field :password, autocomplete: "new-password", class: "form-control" %>
     </div>
-    <div>
-      <%= form.label :price %><br>
-      <%= form.number_field :price, step: 0.01 %>
-    </div>
-    <div>
-      <%= form.label :quantity %><br>
-      <%= form.number_field :quantity %>
-    </div>
-    <div>
-      <%= form.label :car_model_id, "Car Model" %><br>
-      <%= form.collection_select :car_model_id, CarModel.all, :id, :name, prompt: "Select a Car Model" %>
-    </div>
-    <div>
-      <%= form.label :part_type_id, "Part Type" %><br>
-      <%= form.collection_select :part_type_id, PartType.all, :id, :name, prompt: "Select a Part Type" %>
+    <div class="field">
+      <%= form.label :password_confirmation, class: "form-label" %><br />
+      <%= form.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
     </div>
   </div>
   <div>
-    <%= form.submit %>
+    <%= form.submit "Create", class: "btn btn-primary my-2" %>
   </div>
 <% end %>

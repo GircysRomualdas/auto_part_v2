@@ -11,31 +11,31 @@
   <% end %>
   <div>
     <div>
-      <%= form.label :name %><br>
-      <%= form.text_field :name %>
+      <%= form.label :name, class: "form-label" %><br>
+      <%= form.text_field :name, class: "form-control" %>
     </div>
     <div>
-      <%= form.label :description %><br>
-      <%= form.text_area :description %>
+      <%= form.label :description, class: "form-label" %><br>
+      <%= form.text_area :description, class: "form-control", rows: 6 %>
     </div>
     <div>
-      <%= form.label :price %><br>
-      <%= form.number_field :price, step: 0.01 %>
+      <%= form.label :price, class: "form-label" %><br>
+      <%= form.number_field :price, step: 0.01, class: "form-control" %>
     </div>
     <div>
-      <%= form.label :quantity %><br>
-      <%= form.number_field :quantity %>
+      <%= form.label :quantity, class: "form-label" %><br>
+      <%= form.number_field :quantity, class: "form-control" %>
     </div>
     <div>
-      <%= form.label :car_model_id, "Car Model" %><br>
-      <%= form.collection_select :car_model_id, CarModel.all, :id, :name, prompt: "Select a Car Model" %>
+      <%= form.label :car_model_id, "Car Model", class: "form-label" %><br>
+      <%= form.collection_select(:car_model_id, CarModel.all, :id, :name, { prompt: "Select a Car Model" }, { class: "form-select" }) %>
     </div>
     <div>
-      <%= form.label :part_type_id, "Part Type" %><br>
-      <%= form.collection_select :part_type_id, PartType.all, :id, :name, prompt: "Select a Part Type" %>
+      <%= form.label :part_type_id, "Part Type", class: "form-label" %><br>
+      <%= form.collection_select(:part_type_id, PartType.all, :id, :name, { prompt: "Select a Part Type" }, { class: "form-select" }) %>
     </div>
   </div>
   <div>
-    <%= form.submit %>
+    <%= form.submit "Create", class: "btn btn-primary my-2" %>
   </div>
 <% end %>

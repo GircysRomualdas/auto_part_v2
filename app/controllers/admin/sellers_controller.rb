@@ -9,7 +9,7 @@ class Admin::SellersController < AdminController
   end
 
   def new
-    @sellers = Seller.new
+    @seller = Seller.new
   end
 
   def create
@@ -21,7 +21,7 @@ class Admin::SellersController < AdminController
       flash[:alert] = "Failed to create seller"
     end
 
-    redirect_to admin_car_parts_path
+    redirect_to admin_sellers_path
   end
 
   def destroy
@@ -31,7 +31,7 @@ class Admin::SellersController < AdminController
       flash[:alert] = "Failed to delete seller"
     end
 
-    redirect_to admin_car_parts_path
+    redirect_to admin_sellers_path
   end
 
   private
